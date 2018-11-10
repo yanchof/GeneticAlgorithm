@@ -1,5 +1,5 @@
 from core import GeneticAlgorithm
-from select import roulette_wheel_selection
+from select import roulette_wheel_selection, elite_selection
 from crossover import uniform_crossover
 from mutation import binary_mutation
 
@@ -17,7 +17,9 @@ def score(individual):
 
 if __name__ == "__main__":
     ga = GeneticAlgorithm(1, 10, 20, 0.85, 0.1, 40)
-    ga.add_selection_method(roulette_wheel_selection, 200)
+
+    ga.add_selection_method(roulette_wheel_selection, 100)
+    ga.add_selection_method(elite_selection, 20)
     ga.set_crossover_method(uniform_crossover)
     ga.set_mutation_method(binary_mutation)
     ga.set_evaluation_method(score)
