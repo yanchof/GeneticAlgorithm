@@ -1,5 +1,5 @@
 import random
-import numpy as np
+
 
 def roulette_wheel_selection(population, evaluation, selection_num):
     selected = random.choices(population=population, weights=evaluation, k=selection_num)
