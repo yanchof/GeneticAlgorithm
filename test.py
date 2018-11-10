@@ -1,7 +1,7 @@
-from core import GeneticAlgorithm
-from select import roulette_wheel_selection, elite_selection
-from crossover import uniform_crossover
-from mutation import binary_mutation
+from src.core import GeneticAlgorithm
+from src.select import roulette_wheel_selection, elite_selection
+from src.crossover import uniform_crossover
+from src.mutation import binary_mutation
 
 
 def score(individual):
