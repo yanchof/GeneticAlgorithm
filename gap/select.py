@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 
 def roulette_wheel_selection(population, evaluation, selection_num):
@@ -7,7 +8,11 @@ def roulette_wheel_selection(population, evaluation, selection_num):
 
 
 def rank_selection(population, evaluation, selection_num):
-    return
+    population_num = len(population)
+    rank = np.argsort(evaluation)
+    rank_probability = 2 * (population_num - rank + 1) / (population_num * (population_num + 1))
+    selected = random.choices(population=population, weights=rank_probability, k=selection_num)
+    return selected
 
 
 def elite_selection(population, evaluation, selection_num):
