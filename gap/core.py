@@ -29,6 +29,7 @@ class GeneticAlgorithm:
         while len(children) < self.crossover_num:
             parent = random.sample(selected, 2)
             children.extend(self.crossover(parent[0], parent[1]))
+
         self.mutation()
 
     def evaluate(self, individual):
@@ -68,5 +69,6 @@ class GeneticAlgorithm:
         return result
 
     def mutation(self):
-        self.mutation_method(self.population, self.probability_mutation)
+        if self.mutation_method is not None:
+            self.mutation_method(self.population, self.probability_mutation)
 
