@@ -16,7 +16,7 @@ def score(individual):
 
 
 if __name__ == "__main__":
-    ga = GeneticAlgorithm(1, 10, 20, 0.85, 0.1, 40)
+    ga = GeneticAlgorithm(1, 5, 40, 0.85, 0.1, 40)
 
     ga.add_selection_method(roulette_wheel_selection, 100)
     ga.add_selection_method(elite_selection, 20)
