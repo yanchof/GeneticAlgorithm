@@ -40,8 +40,8 @@ if __name__ == "__main__":
     city_num = len(city)
 
     ga = GeneticAlgorithm(1, city_num, 60, 0.85, 0.05, 60)
-    ga.add_selection_method(roulette_wheel_selection, 40)
-    ga.add_selection_method(elite_selection, 20)
+    ga.add_selection_method(roulette_wheel_selection, {'selection_num': 40, 'tournament_size': 8})
+    ga.add_selection_method(elite_selection, {'selection_num', 20})
     ga.set_crossover_method(partially_mapped_crossover_2)
     ga.set_mutation_method(exchange_mutation)
     ga.set_evaluation_method(score)

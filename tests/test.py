@@ -1,5 +1,5 @@
 from gap.core import GeneticAlgorithm
-from gap.select import roulette_wheel_selection, elite_selection
+from gap.select import tournament_selection, elite_selection
 from gap.crossover import uniform_crossover
 from gap.mutation import binary_mutation
 
@@ -18,8 +18,8 @@ def score(individual):
 if __name__ == "__main__":
     ga = GeneticAlgorithm(1, 5, 40, 0.85, 0.1, 40)
 
-    ga.add_selection_method(roulette_wheel_selection, 100)
-    ga.add_selection_method(elite_selection, 20)
+    ga.add_selection_method(tournament_selection, {'selection_num': 20, 'tournament_size': 4})
+    ga.add_selection_method(elite_selection, {'selection_num': 20})
     ga.set_crossover_method(uniform_crossover)
     ga.set_mutation_method(binary_mutation)
     ga.set_evaluation_method(score)
