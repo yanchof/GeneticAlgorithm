@@ -12,6 +12,7 @@ class GeneticAlgorithm:
         self.evaluation_method = None
         self.selection_method = []
         self.selection_num = []
+        self.selection_option = []
         self.crossover_method = None
         self.crossover_num = crossover_num
         self.mutation_method = None
@@ -44,9 +45,9 @@ class GeneticAlgorithm:
     def generate_population(self):
         self.population = [self.generate_individual() for i in range(self.population_num)]
 
-    def add_selection_method(self, method, selection_num):
+    def add_selection_method(self, method, option):
         self.selection_method.append(method)
-        self.selection_num.append(selection_num)
+        self.selection_option.append(option)
 
     def set_evaluation_method(self, method):
         self.evaluation_method = method
@@ -59,8 +60,8 @@ class GeneticAlgorithm:
 
     def select(self, evaluation):
         result = list()
-        for method, selection_num in zip(self.selection_method, self.selection_num):
-            result.extend(method(self.population, evaluation, selection_num))
+        for method, option in zip(self.selection_method, self.selection_option):
+            result.extend(method(self.population, evaluation, option))
         return result
 
     def crossover(self, parent1, parent2):
